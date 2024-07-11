@@ -7,6 +7,7 @@ It has been created with the following features:
 - [x] Gin (Web Framework)
 - [x] GORM (Database ORM)
 - [x] Fx (Dependency Injection)
+- [ ] Structured Logging
 - [ ] Unit Testing
 - [ ] Swagger
 - [ ] Telemetry
