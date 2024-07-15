@@ -49,5 +49,11 @@ watch:
 	    fi; \
 	fi
 
-.PHONY: all build run test clean
+docs:
+	@swag init -g internal/app.go --parseDependency 
+docs_fmt:
+	@swag fmt
+
+
+.PHONY: all build run test clean docs docs_fmt
 

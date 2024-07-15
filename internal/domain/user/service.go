@@ -16,8 +16,11 @@ func NewUserService(db *gorm.DB) *UserService {
 	}
 }
 
-func (s *UserService) Add(user *model.User) error {
-	return s.db.Create(&user).Error
+func (s *UserService) Add(dto *CreateUserDTO) (model.User, error) {
+	user := dto.toModel()
+
+	err := s.db.Create(&user).Error
+	return user, err
 }
 
 func (s *UserService) Get() ([]model.User, error) {

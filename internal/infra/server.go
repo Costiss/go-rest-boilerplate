@@ -9,6 +9,8 @@ import (
 	"time"
 
 	"github.com/gin-gonic/gin"
+	swaggerfiles "github.com/swaggo/files"
+	ginSwagger "github.com/swaggo/gin-swagger"
 	"go.uber.org/fx"
 )
 
@@ -31,6 +33,10 @@ func NewServer(lc fx.Lifecycle) *Server {
 	router := gin.Default()
 
 	router.Use(gin.Recovery())
+
+	if os.Getenv("GIN_MODE") != "release" {
+		router.GET("/swagger/*any", ginSwagger.WrapHandler(swaggerfiles.Handler))
+	}
 
 	http := &http.Server{
 		Addr:         getPort(),

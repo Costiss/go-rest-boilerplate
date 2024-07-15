@@ -9,7 +9,7 @@ It has been created with the following features:
 - [x] Fx (Dependency Injection)
 - [ ] Structured Logging
 - [ ] Unit Testing
-- [ ] Swagger
+- [x] Swagger
 - [ ] Telemetry
 
 ## Project Structure
